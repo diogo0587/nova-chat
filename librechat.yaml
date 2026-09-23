@@ -7,7 +7,9 @@ endpoints:
       baseURL: https://integrate.api.nvidia.com/v1
       models:
         default:
-          - meta/llama-3.3-70b-instruct
+          - mistralai/mistral-nemotron
+          - nvidia/nemotron-3-super-120b-a12b
+          - google/gemma-4-31b-it
         fetch: false
       titleConvo: false
       modelDisplayLabel: NVIDIA
