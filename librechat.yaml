@@ -1,0 +1,23 @@
+version: 1.3.6
+cache: true
+endpoints:
+  custom:
+    - name: NVIDIA
+      apiKey: '${NVIDIA_API_KEY}'
+      baseURL: https://integrate.api.nvidia.com/v1
+      models:
+        default:
+          - meta/llama-3.3-70b-instruct
+        fetch: false
+      titleConvo: false
+      modelDisplayLabel: NVIDIA
+    - name: Groq
+      apiKey: '${GROQ_API_KEY}'
+      baseURL: https://api.groq.com/openai/v1/
+      models:
+        default:
+          - llama-3.1-8b-instant
+          - llama-3.3-70b-versatile
+        fetch: false
+      titleConvo: false
+      modelDisplayLabel: Groq
