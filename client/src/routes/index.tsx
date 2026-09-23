@@ -45,7 +45,7 @@ const AuthLayout = () => (
 
 const baseEl = document.querySelector('base');
 const baseHref = baseEl?.getAttribute('href') || '/';
-const MARKETING_HOSTS = new Set(['kyns.ai', 'www.kyns.ai']);
+const MARKETING_HOSTS = new Set<string>();
 const currentHostname = window.location.hostname.toLowerCase();
 const shouldServeMarketingSite = MARKETING_HOSTS.has(currentHostname);
 

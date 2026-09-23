@@ -201,7 +201,7 @@ const Registration: React.FC = () => {
                 <span className="text-sm text-text-secondary">
                   {localize('com_auth_terms_agree')}{' '}
                   <a
-                    href="https://kyns.ai/terms"
+                    href="https://github.com/diogo0587/nova-chat"
                     target="_blank"
                     rel="noreferrer"
                     className="text-green-600 hover:underline dark:text-green-400"
@@ -210,7 +210,7 @@ const Registration: React.FC = () => {
                   </a>
                   {' & '}
                   <a
-                    href="https://kyns.ai/privacy"
+                    href="https://github.com/diogo0587/nova-chat"
                     target="_blank"
                     rel="noreferrer"
                     className="text-green-600 hover:underline dark:text-green-400"
