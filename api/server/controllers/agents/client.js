@@ -1652,14 +1652,15 @@ class AgentClient extends BaseClient {
           err,
         );
         const rawMsg = err?.message ?? '';
-        const stackHint = err?.stack
-          ? '\n' + err.stack.split('\n').slice(0, 4).join('\n')
-          : '';
+        const isProviderBusy =
+          /temporarily overloaded|overloaded|rate limit|too many requests|\b429\b|\b503\b/i.test(rawMsg);
         const isConnectionError =
           /Connection error|terminated|ECONNREFUSED|ECONNRESET|fetch failed|ETIMEDOUT|EngineCore|Received empty response|Empty streamed response/i.test(rawMsg);
-        const userMessage = isConnectionError
-          ? 'Falha de conexão com o servidor. Pode ser temporário — tente novamente em alguns instantes.'
-          : `${rawMsg || 'Unknown error'}${stackHint}`;
+        const userMessage = isProviderBusy
+          ? 'O modelo está ocupado no momento. Tente novamente ou escolha o Groq Llama 3.1 8B Instant.'
+          : isConnectionError
+            ? 'Falha de conexão com o servidor. Tente novamente em alguns instantes.'
+            : 'Não foi possível gerar a resposta. Tente novamente ou escolha outro modelo.';
         this.contentParts.push({
           type: ContentTypes.ERROR,
           [ContentTypes.ERROR]: userMessage,
